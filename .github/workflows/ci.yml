@@ -17,4 +17,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm test
+      - run: npm start
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: index.node.linux
+          path: ${{ github.workspace }}/output.txt
