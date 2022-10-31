@@ -11,13 +11,14 @@ const run = async (): Promise<void> => {
     }
 
     let configFile = path.resolve(cwd, '.github/classroom/autograding.json');
-    let outputFile = core.getInput('outputFile');
+    let outputFile = core.getInput('outputFile') || 'output.txt';
+    let scriptPath = core.getInput('scriptPath') || '.github/classroom';
     if(fs.existsSync(configFile)) {
       const data = fs.readFileSync(configFile)
       const json = JSON.parse(data.toString())
-      await runAll(json, cwd, outputFile, core.getInput('scriptPath'))
+      await runAll(json, cwd, outputFile, scriptPath)
     } else {
-      await runAll({}, cwd, outputFile, core.getInput('scriptPath'))
+      await runAll({}, cwd, outputFile, scriptPath)
     }
 
   } catch (error) {
