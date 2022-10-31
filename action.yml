@@ -1,6 +1,6 @@
 name: OSAutograding
 description: "OSAutograding is adapted from education/autograding. It only serves for os course teaching."
-author: "@yufeng"
+author: "@livstyle"
 inputs:
   token:
     description: >

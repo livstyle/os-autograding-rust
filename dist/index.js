@@ -17739,6 +17739,12 @@ exports.runAll = async (testConfig, cwd, testFile, scriptsPath) => {
     let availablePoints = 0;
     // https://help.github.com/en/actions/reference/development-tools-for-github-actions#stop-and-start-log-commands-stop-commands
     log('::os autograding::');
+    console.log(`
+  testConfig: ${JSON.stringify(testConfig)};\n
+  cwd: ${cwd};
+  testFile: ${testFile};
+  scriptsPath: ${scriptsPath};
+  `);
     const fileValue = fs_1.readFileSync(path_1.default.join(cwd, testFile)).toString();
     // const classRoomPath = path.join(cwd, '.github/classroom/');
     const scriptPath = path_1.default.join(cwd, scriptsPath);

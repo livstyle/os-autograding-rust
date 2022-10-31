@@ -21,5 +21,5 @@ jobs:
       - name: artifact
         uses: actions/upload-artifact@v3
         with:
-          name: index.node.linux
+          name: output.txt
           path: ${{ github.workspace }}/output.txt

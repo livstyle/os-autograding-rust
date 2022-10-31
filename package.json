@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --noEmit && ncc build src/autograding.ts -o dist",
     "test": "tsc --noEmit && jest",
-    "start": "npm run build && node .",
+    "start": "node .",
     "rlist": "nrustlings list"
   },
   "keywords": [
