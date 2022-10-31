@@ -28,6 +28,12 @@ export const runAll = async (testConfig: TestConfig, cwd: string, testFile: stri
 
   // https://help.github.com/en/actions/reference/development-tools-for-github-actions#stop-and-start-log-commands-stop-commands
   log('::os autograding::')
+  console.log(`
+  testConfig: ${JSON.stringify(testConfig)};\n
+  cwd: ${cwd};
+  testFile: ${testFile};
+  scriptsPath: ${scriptsPath};
+  `);
 
   const fileValue = readFileSync(path.join(cwd, testFile)).toString()
   // const classRoomPath = path.join(cwd, '.github/classroom/');
