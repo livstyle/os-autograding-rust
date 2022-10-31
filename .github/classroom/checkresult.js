@@ -3,7 +3,7 @@ const restlings = require('rustlings');
 function judge(outputFile) {
     let points = {};
     let result = restlings.myverify();
-    // 保存到全局先
+    // 保存到全局先   
     restlingsMyverify = result;
     if (result !== 'error') {
         let jsonResult = JSON.parse(result);
