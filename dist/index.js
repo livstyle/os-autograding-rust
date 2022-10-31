@@ -35187,14 +35187,15 @@ const run = async () => {
             throw new Error('No GITHUB_WORKSPACE');
         }
         let configFile = path_1.default.resolve(cwd, '.github/classroom/autograding.json');
-        let outputFile = core.getInput('outputFile');
+        let outputFile = core.getInput('outputFile') || 'output.txt';
+        let scriptPath = core.getInput('scriptPath') || '.github/classroom';
         if (fs_1.default.existsSync(configFile)) {
             const data = fs_1.default.readFileSync(configFile);
             const json = JSON.parse(data.toString());
-            await runner_1.runAll(json, cwd, outputFile, core.getInput('scriptPath'));
+            await runner_1.runAll(json, cwd, outputFile, scriptPath);
         }
         else {
-            await runner_1.runAll({}, cwd, outputFile, core.getInput('scriptPath'));
+            await runner_1.runAll({}, cwd, outputFile, scriptPath);
         }
     }
     catch (error) {
